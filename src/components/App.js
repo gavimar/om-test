@@ -32,9 +32,6 @@ class App extends React.Component {
   }
 
 
-  
- 
-
   handleNumberValue(inputValue){
     this.setState({
       numberValue : inputValue
@@ -42,7 +39,7 @@ class App extends React.Component {
   }
 
   applyFilters(){
-    const {data, value, numberValue} = this.state
+    const {data, numberValue} = this.state
     return data
     .filter (BeerObj => numberValue === "" || BeerObj.abv === parseInt(numberValue) )
   }
@@ -50,21 +47,18 @@ class App extends React.Component {
  
 
   render() {
-    const {data, value, found, numberValue} = this.state;
+    const {numberValue} = this.state;
     return (
       <div className="wrapper">
         
           <header className = "header">
             <h1>Beer Finder</h1>
             <Filter 
-              
               numberValue ={numberValue}
               handleNumberValue={this.handleNumberValue}/>
             </header>
               <main className="main">
                 <BeerList 
-                  Beers={data} 
-                  inputValue={value}
                   dataList = {this.applyFilters()}/>
             </main>
           

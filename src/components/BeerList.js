@@ -4,7 +4,7 @@ import Beer from './Beer';
 
 
 const BeerList = (props) => {
-  console.log(props.inputValue)
+  
   const {dataList} = props;
   
   return (
